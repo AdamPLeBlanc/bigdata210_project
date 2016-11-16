@@ -12,9 +12,12 @@ enrollmentCsvPath = r"../data/K-12_Public_School_Enrollment_by_Grade_Level_Octob
 schoolDistrictPopCsvPath = r"../data/WAOFM_-_SAEP_-_School_District_Population_Estimates__2000-2016.csv"
 
 #load school district population data
-hc = HiveContext(sc)
-df = hc.read.format("com.databricks.spark.csv").options(header="true").load(schoolDistrictPopCsvPath)
-
-print df.schema
-
+parseCsv = lambda line : line.split(',')
+sc = SparkContext()
+dropoutRdd = sc.textFile(dropoutRateCsvPath).map(parseCsv)
+enrollmentRdd = sc.textFile(enrollmentCsvPath).map(parseCsv)
+popRdd = sc.textFile(schoolDistrictPopCsvPath).map(parseCsv)
+print dropoutRdd.take(5)
+print enrollmentRdd.take(5)
+print popRdd.take(5)
 print "done"
