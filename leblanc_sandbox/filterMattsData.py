@@ -5,7 +5,7 @@ from pyspark import SparkConf, SparkContext
 
 zillowDataPath = r"../data/Zip_Zhvi_AllHomes_Historical.csv"
 zipCodeDataPath = r"../data/zip_code_database.csv"
-schoolDistrictDataPath = r"../data/WAOFM_-_SAEP_-_School_District_Population_Estimates__2000-2016.csv"
+schoolDistrictDataPath = r"../data/WAOFM_-_SAEP_-_School_District_Population_Estimates__2000-2016.csv.tweeked"
 demoDataPath = r"../data/14zpallnoagi.csv"
 
 #create a spark context
